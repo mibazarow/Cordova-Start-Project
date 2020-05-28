@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Version for Cordova/PhoneGap
+  ~ © 2017-2019 YANDEX
+  ~ You may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~ https://yandex.com/legal/appmetrica_sdk_agreement/
+  -->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="yandex-appmetrica-plugin-cordova"
+        version="1.0.0">
+    <name>AppMetrica</name>
+    <description>Cordova/PhoneGap plugin for AppMetrica analytics tool</description>
+    <author>Yandex, LLC</author>
+    <license>https://yandex.com/legal/appmetrica_sdk_agreement/</license>
+    <keywords>yandex appmetrica metrica analytics tracking ios android</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.3.0"/>
+    </engines>
+
+    <js-module src="www/appmetrica.js" name="appmetrica">
+        <clobbers target="appMetrica" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AppMetrica" >
+                <param name="android-package" value="com.yandex.metrica.plugin.cordova.AppMetricaPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="platforms/android/com/yandex/metrica/plugin/cordova/AppMetricaPlugin.java"
+                     target-dir="src/com/yandex/metrica/plugin/cordova" />
+
+        <framework src="platforms/android/build.gradle" custom="true" type="gradleReference" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AppMetrica">
+                <param name="ios-package" value="YMMAppMetricaPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="platforms/ios/YMMAppMetricaPlugin.h" />
+        <source-file src="platforms/ios/YMMAppMetricaPlugin.m" />
+        <framework src="platforms/ios/YandexMobileMetrica.framework" custom="true" />
+        <framework src="platforms/ios/YandexMobileMetricaCrashes.framework" custom="true" />
+
+        <framework src="AdSupport.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="Security.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="UIKit.framework" />
+
+        <framework src="SafariServices.framework" weak="true" />
+
+        <framework src="libc++.dylib" />
+        <framework src="libsqlite3.dylib" />
+        <framework src="libz.dylib" />
+    </platform>
+
+</plugin>

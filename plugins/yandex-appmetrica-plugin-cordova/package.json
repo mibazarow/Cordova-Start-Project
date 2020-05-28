@@ -1,0 +1,73 @@
+{
+  "_from": "yandex-appmetrica-plugin-cordova",
+  "_id": "yandex-appmetrica-plugin-cordova@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-e0GEutq2DyvbfwfE8J8Xr1LsLjAFGk3b/v3rmNIN9CPZch/oZ5XN3EUCnTTe0gkJ+4gSRqh9z8UNtE0NncqQuQ==",
+  "_location": "/yandex-appmetrica-plugin-cordova",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "yandex-appmetrica-plugin-cordova",
+    "name": "yandex-appmetrica-plugin-cordova",
+    "escapedName": "yandex-appmetrica-plugin-cordova",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/yandex-appmetrica-plugin-cordova/-/yandex-appmetrica-plugin-cordova-1.0.0.tgz",
+  "_shasum": "2053e7a3038ad8329e8d45c3d7adf2755ef9b120",
+  "_spec": "yandex-appmetrica-plugin-cordova",
+  "_where": "/Users/bazarovmihail/Documents/SHARE/MY_PROJECTS/CORDOVA_PROJECTS/cordova.app.start",
+  "author": {
+    "name": "Yandex, LLC"
+  },
+  "bugs": {
+    "url": "https://github.com/yandexmobile/metrica-plugin-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "yandex-appmetrica-plugin-cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Cordova/PhoneGap plugin for AppMetrica analytics tool",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.3.0"
+    }
+  ],
+  "homepage": "https://appmetrica.yandex.com/docs",
+  "keywords": [
+    "yandex",
+    "appmetrica",
+    "metrica",
+    "analytics",
+    "tracking",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "yandex-appmetrica-plugin-cordova",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yandexmobile/metrica-plugin-cordova.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

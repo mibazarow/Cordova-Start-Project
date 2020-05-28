@@ -1,0 +1,57 @@
+{
+  "_from": "cordova-plugin-android-imei",
+  "_id": "cordova-plugin-android-imei@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-fFdgZR+bWokIrMnLB780doAb3EpS2x8+EsPPxuPmEN2xuz7UELSJGQpsZgsL2RkOsDQ8mbg9vwP50vRP3agTwg==",
+  "_location": "/cordova-plugin-android-imei",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-android-imei",
+    "name": "cordova-plugin-android-imei",
+    "escapedName": "cordova-plugin-android-imei",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-android-imei/-/cordova-plugin-android-imei-1.0.0.tgz",
+  "_shasum": "d122d342eabe333e5a3d28f2daff5bfd22652459",
+  "_spec": "cordova-plugin-android-imei",
+  "_where": "/Users/bazarovmihail/Documents/SHARE/MY_PROJECTS/CORDOVA_PROJECTS/cordova.app.start",
+  "author": {
+    "name": "Mirza Kapetanovic"
+  },
+  "bugs": {
+    "url": "https://github.com/kapetan/cordova-plugin-android-imei/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-android-imei",
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Cordova plugin for retrieving IMEI of the device",
+  "devDependencies": {
+    "standard": "^11.0.0"
+  },
+  "homepage": "https://github.com/kapetan/cordova-plugin-android-imei#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-plugin-android-imei",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapetan/cordova-plugin-android-imei.git"
+  },
+  "scripts": {
+    "test": "standard --verbose"
+  },
+  "version": "1.0.0"
+}

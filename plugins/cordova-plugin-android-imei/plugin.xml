@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-android-imei"
+        version="1.0.0">
+  <name>Android IMEI</name>
+  <description>Cordova plugin for retrieving IMEI of the device</description>
+  <author>Mirza Kapetanovic</author>
+  <keywords></keywords>
+  <license>ISC</license>
+  <repo>git+https://github.com/kapetan/cordova-plugin-android-imei.git</repo>
+  <issue>https://github.com/kapetan/cordova-plugin-android-imei/issues</issue>
+  <platform name="android">
+    <js-module src="www/index.js" name="IMEI">
+      <clobbers target="cordova.plugins.IMEI" />
+    </js-module>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <preference name="android-minSdkVersion" value="23" />
+
+      <feature name="ImeiPlugin">
+        <param name="android-package" value="dk.kapetanovic.imei.ImeiPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    </config-file>
+
+    <source-file src="src/dk/kapetanovic/imei/ImeiPlugin.java" target-dir="src/dk/kapetanovic/imei" />
+  </platform>
+</plugin>
