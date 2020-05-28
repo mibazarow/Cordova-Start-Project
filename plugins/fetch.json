@@ -34,7 +34,7 @@
   "cordova-plugin-dialogs": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-dialogs"
+      "id": "cordova-plugin-dialogs@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -90,7 +90,7 @@
   "cordova-plugin-screen-orientation": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-screen-orientation"
+      "id": "cordova-plugin-screen-orientation@^3.0.2"
     },
     "is_top_level": true,
     "variables": {}
