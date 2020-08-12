@@ -42,7 +42,7 @@
     /*
      Reference to the currently displayed alert view.  Can be NULL.
      */
-    UIAlertView *alertView;
+    UIAlertController *alertController;
     
     /*
      True if the user forced a reload.
@@ -163,38 +163,37 @@
  */
 -(void) displayRetryPromptWithMessage:(NSString*)message withCancelText:(NSString *)cancelText retryable:(BOOL) retry
 {
-    alertView = [[UIAlertView alloc] initWithTitle:@"Connection Error"
-                                           message:message
-                                          delegate:self
-                                 cancelButtonTitle:cancelText
-                                 otherButtonTitles:nil];
+    
+    alertController = [UIAlertController
+                    alertControllerWithTitle:@"Connection Error"
+                    message:message
+                    preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* cancelBtn = [UIAlertAction
+                               actionWithTitle:cancelText
+                               style:UIAlertActionStyleCancel
+                                handler:^(UIAlertAction * action) {
+                                    [self startRequestTimer];
+                                }];
+
+    [alertController addAction:cancelBtn];
+    
     if (retry) {
-        [alertView addButtonWithTitle:@"Retry"];
+        UIAlertAction* retryBtn = [UIAlertAction
+                            actionWithTitle:@"Retry"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action) {
+                                userRequestedReload = YES;
+                                NSLog(@"User initiated retry of current request");
+                                [self retryCurrentRequest];
+                                [self startRequestTimer];
+                            }];
+        [alertController addAction:retryBtn];
+        
     }
-    [alertView show];
-}
-
-/*
- * Invoked as callback from UIAlertView when prompting the user about connection issues.
- */
-- (void) alertView:(UIAlertView *)view didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    alertView = NULL;
-
-    if(buttonIndex == 1) {
-        userRequestedReload = YES; // Allows us to keep track of the fact that an error may be raised
-        // by the webView as a result of attempting to load a page before the previous request finished.
-
-        NSLog(@"User initiated retry of current request");
-        [self retryCurrentRequest];
-    }
-
-    if (buttonIndex == 0 || buttonIndex == 1) {
-        // In either the case that the user says to wait or retry we always want to reset the timer so that they're
-        // prompted if the request has not completed.  This provides the user a way to get out of a blank screen
-        // on start up.
-        [self startRequestTimer];
-    }
+        UIViewController* rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        
+        [rootController presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Subclass callbacks
@@ -218,7 +217,7 @@
     if ([error code] == NSURLErrorCancelled) { //ignore if page load didn't complete and user moved away to another page
         return;
     }
-
+    
     if (userRequestedReload == NO && self.plugin.showConnectionErrorDialog == YES) {
         [self displayRetryPromptWithMessage:@"Unable to contact the site." withCancelText:@"Close" retryable:NO];
     }
@@ -229,10 +228,10 @@
  */
 -(void) cancelRequestTimer
 {
-    if (alertView != NULL && alertView.visible == YES) {
+    if (alertController != NULL) {
         // Dismiss the alert view.  The assumption is the page finished loading while the view was displayed.
-        [alertView dismissWithClickedButtonIndex:-1 animated:YES];
-        alertView = NULL;
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+        alertController = NULL;
     }
     
     if (lastRequestTime != NULL) {

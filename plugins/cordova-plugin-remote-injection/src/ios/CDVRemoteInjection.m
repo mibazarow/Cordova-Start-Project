@@ -6,7 +6,6 @@
 #import <WebKit/WebKit.h>
 
 #import "CDVRemoteInjection.h"
-#import "CDVRemoteInjectionUIWebViewDelegate.h"
 #import "CDVRemoteInjectionWKWebViewDelegate.h"
 
 @implementation CDVRemoteInjectionPlugin {
@@ -14,17 +13,17 @@
      Last time a request was made to load the web view.  Can be NULL.
      */
     NSDate *lastRequestTime;
-    
+
     /*
      True if the user forced a reload.
      */
     BOOL forcedReload;
-    
+
     /*
      Reference to the currently displayed alert view.  Can be NULL.
      */
-    UIAlertView *alertView;
-    
+    UIAlertController *alertController;
+
     /*
      * Delegate instance for the type of webView the containing app is using.
      */
@@ -32,7 +31,7 @@
 }
 
 /*
- Returns the current webView.  There's no guarantee as to the type of the 
+ Returns the current webView.  There's no guarantee as to the type of the
  webView at this point.
  */
 - (id) findWebView
@@ -47,7 +46,7 @@
 - (void) pluginInitialize
 {
     [super pluginInitialize];
-    
+
     // Read configuration for JS to inject before injecting cordova.
     NSString *value = [self settingForKey:@"CRIInjectFirstFiles"];
     if (value != NULL) {
@@ -60,7 +59,7 @@
     } else {
         _injectFirstFiles = [[NSArray alloc] init];
     }
-    
+
     value = [self settingForKey:@"CRIPageLoadPromptInterval"];
     if (value != NULL) {
         _promptInterval = [value integerValue];
@@ -71,7 +70,7 @@
         // If wanting to turn off set the value to 0 in the pref.
         _promptInterval = 10;
     }
-    
+
     value = [self settingForKey:@"CRIShowConnectionErrorDialog"];
     if ([value isEqual: @"0"]) {
         _showConnectionErrorDialog = NO;
@@ -81,17 +80,11 @@
     }
 
     id webView = [self findWebView];
-    if ([webView isKindOfClass:[UIWebView class]]) {
-        NSLog(@"Found UIWebView");
-        webViewDelegate = [[CDVRemoteInjectionUIWebViewDelegate alloc] init];
-        [webViewDelegate initializeDelegate:self];
-        
-        return;
-    } else if ([webView isKindOfClass:[WKWebView class]]) {
+     if ([webView isKindOfClass:[WKWebView class]]) {
         NSLog(@"Found WKWebView");
         webViewDelegate = [[CDVRemoteInjectionWKWebViewDelegate alloc] init];
         [webViewDelegate initializeDelegate:self];
-        
+
         return;
     } else {
         NSLog(@"Not a supported web view implementation");

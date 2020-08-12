@@ -18,8 +18,6 @@
     <source-file src="src/ios/CDVRemoteInjection.m" />
     <header-file src="src/ios/CDVRemoteInjectionWebViewBaseDelegate.h" />
     <source-file src="src/ios/CDVRemoteInjectionWebViewBaseDelegate.m" />
-    <header-file src="src/ios/CDVRemoteInjectionUIWebViewDelegate.h" />
-    <source-file src="src/ios/CDVRemoteInjectionUIWebViewDelegate.m" />
     <header-file src="src/ios/CDVRemoteInjectionWKWebViewDelegate.h" />
     <source-file src="src/ios/CDVRemoteInjectionWKWebViewDelegate.m" />
   </platform>
