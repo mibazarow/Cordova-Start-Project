@@ -27,5 +27,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="WKWebViewOnly" value="true" />
+        <preference name="Allow3DTouchLinkPreview" value="false" />
     </platform>
 </widget>
