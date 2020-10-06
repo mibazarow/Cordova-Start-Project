@@ -23,11 +23,16 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-     <platform name="ios">
+      <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="StatusBarOverlaysWebView" value="false" />
-        <preference name="WKWebViewOnly" value="true" />
-        <preference name="Allow3DTouchLinkPreview" value="false" />
     </platform>
+
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="WKWebViewOnly" value="true" />
+    <preference name="Allow3DTouchLinkPreview" value="false" />
 </widget>
