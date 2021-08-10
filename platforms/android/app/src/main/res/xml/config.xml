@@ -10,6 +10,7 @@
     <icon src="DATAS/src/ico.png" />
     <splash src="DATAS/src/Default@2x~universal~anyany.png" />
     <content src="https://app.site.ru/index.php" />
+    <allow-navigation href="https://app.site.ru/*" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -19,4 +20,8 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="LoadUrlTimeoutValue" value="1000000" />
+    <preference name="CRIPageLoadPromptInterval" value="200" />
+    <preference name="AndroidXEnabled" value="true" />
 </widget>

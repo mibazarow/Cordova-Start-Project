@@ -35,6 +35,7 @@
     <icon src="DATAS/src/ico.png" />
     <splash src="DATAS/src/Default@2x~universal~anyany.png" />
     <content src="https://app.site.ru/index.php" />
+    <allow-navigation href="https://app.site.ru/*" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -44,6 +45,12 @@
     <allow-intent href="geo:*" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
+        <string>Причина использования микрофона.</string>
+    </config-file>
+    <config-file parent="NSSpeechRecognitionUsageDescription" target="*-Info.plist">
+        <string>Причина использования записи.</string>
+    </config-file>
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -57,5 +64,11 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="LoadUrlTimeoutValue" value="1000000" />
+    <preference name="CRIPageLoadPromptInterval" value="200" />
     <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="WKWebViewOnly" value="true" />
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
 </widget>
