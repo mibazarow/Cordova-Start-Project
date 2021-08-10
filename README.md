@@ -9,3 +9,10 @@
 - cordova-plugin-remote-injection
 
 Движек рендеринга переключен на wkwebview (иначе, не пройдет публикацию в AppStore).
+
+
+10 августа 2021
+Обновлены платформы
+Обновлен плагин remote injection
+Добавлены плагины firebasex, socialsharing и speechrecognition
+Смотрите примеры в /www/index.html
