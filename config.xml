@@ -7,15 +7,11 @@
     <author email="mihail@bazarow.ru" href="https://camouf.ru">
        Mihail Bazarow
     </author>
-
-    <icon src="DATAS/src/ico.png" /><!-- Не забудте добавить иконку 1024 на 1024 png -->
-    <splash src="DATAS/src/Default@2x~universal~anyany.png" />
-
+    <icon src="DATAS/ico.png" /><!-- Не забудте добавить иконку 1024 на 1024 png -->
+    <splash src="DATAS/Default@2x~universal~anyany.png" /><!-- Не забудте добавить экран загрузки -->
     <content src="https://app.site.ru/index.php" />
     <allow-navigation href="https://app.site.ru/*" />
-
     <plugin name="cordova-plugin-whitelist" spec="1" />
-
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -23,22 +19,17 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-
-
     <preference name="Orientation" value="portrait" />
     <preference name="LoadUrlTimeoutValue" value="1000000" />
     <preference name="CRIPageLoadPromptInterval" value="200" />
-
     <!--plugin name="cordova-plugin-firebasex"> // UNCOMMENT FOR USE FIREBASE
         <variable name="ANDROID_FIREBASE_CONFIG_FILEPATH" value="google-services.json" />
         <variable name="IOS_FIREBASE_CONFIG_FILEPATH" value="GoogleService-Info.plist" />
     </plugin-->
-
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="AndroidXEnabled" value="true" />
     </platform>
-
      <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -47,7 +38,6 @@
         <preference name="hostname" value="localhost" />
         <preference name="WKWebViewOnly" value="true" />
     </platform>
-
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -60,5 +50,4 @@
             <string>Причина использования записи.</string>
         </config-file>
     </platform>
-
 </widget>

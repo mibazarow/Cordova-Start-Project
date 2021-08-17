@@ -135,14 +135,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-firebase": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-firebase"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-android-imei": {
     "source": {
       "type": "registry",
@@ -155,14 +147,6 @@
     "source": {
       "type": "registry",
       "id": "yandex-appmetrica-plugin-cordova"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-wkwebview-engine": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-wkwebview-engine"
     },
     "is_top_level": true,
     "variables": {}
